@@ -22,3 +22,8 @@ The exercises for this workshop can be found in the [exercises folder](exercises
 The solution files for each exercise can be found in the `solution` subdirectories.
 To compile the solution source files and headers, change `CMakeLists.solution.txt` to `CMakeLists.txt`, clean the workspace, and recompile.
 
+## Don't forget
+
+```sh
+export NOETHER_PLUGIN_LIBS=noether_roscon_2024_plugins
+```
