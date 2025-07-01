@@ -10,14 +10,15 @@ namespace noether
 {
 struct CameraStandoffToolPathModifierWidgetPlugin : public ToolPathModifierWidgetPlugin
 {
-  QWidget* create(QWidget* parent = nullptr, const YAML::Node& config = {}) const override
+  QWidget * create(QWidget * parent = nullptr, const YAML::Node & config = {}) const override
   {
     // Create the widget for the camera standoff tool path modifier
-    auto* widget = new CameraStandoffToolPathModifierWidget(parent);
+    auto * widget = new CameraStandoffToolPathModifierWidget(parent);
 
     // Attempt to configure the widget
-    if (!config.IsNull())
+    if (!config.IsNull()) {
       widget->configure(config);
+    }
 
     return widget;
   }
@@ -25,14 +26,15 @@ struct CameraStandoffToolPathModifierWidgetPlugin : public ToolPathModifierWidge
 
 struct CylinderSegmentationMeshModifierWidgetPlugin : public MeshModifierWidgetPlugin
 {
-  QWidget* create(QWidget* parent = nullptr, const YAML::Node& config = {}) const override
+  QWidget * create(QWidget * parent = nullptr, const YAML::Node & config = {}) const override
   {
     // Create the widget for the cylinder segmentation mesh modifier
-    auto* widget = new CylinderSegmentationMeshModifierWidget(parent);
+    auto * widget = new CylinderSegmentationMeshModifierWidget(parent);
 
     // Attempt to configure the widget
-    if (!config.IsNull())
+    if (!config.IsNull()) {
       widget->configure(config);
+    }
 
     return widget;
   }
@@ -40,13 +42,14 @@ struct CylinderSegmentationMeshModifierWidgetPlugin : public MeshModifierWidgetP
 
 struct NoOpToolPathPlannerWidgetPlugin : public ToolPathPlannerWidgetPlugin
 {
-  QWidget* create(QWidget* parent = nullptr, const YAML::Node& config = {}) const override
+  QWidget * create(QWidget * parent = nullptr, const YAML::Node & config = {}) const override
   {
-    auto* widget = new NoOpToolPathPlannerWidget(parent);
+    auto * widget = new NoOpToolPathPlannerWidget(parent);
 
     // Attempt to configure the widget
-    if (!config.IsNull())
+    if (!config.IsNull()) {
       widget->configure(config);
+    }
 
     return widget;
   }
@@ -55,6 +58,10 @@ struct NoOpToolPathPlannerWidgetPlugin : public ToolPathPlannerWidgetPlugin
 }  // namespace noether
 
 // Export the plugin
-EXPORT_TOOL_PATH_MODIFIER_WIDGET_PLUGIN(noether::CameraStandoffToolPathModifierWidgetPlugin, CameraStandoff)
-EXPORT_MESH_MODIFIER_WIDGET_PLUGIN(noether::CylinderSegmentationMeshModifierWidgetPlugin, CylinderSegmentation)
+EXPORT_TOOL_PATH_MODIFIER_WIDGET_PLUGIN(
+  noether::CameraStandoffToolPathModifierWidgetPlugin,
+  CameraStandoff)
+EXPORT_MESH_MODIFIER_WIDGET_PLUGIN(
+  noether::CylinderSegmentationMeshModifierWidgetPlugin,
+  CylinderSegmentation)
 EXPORT_TPP_WIDGET_PLUGIN(noether::NoOpToolPathPlannerWidgetPlugin, NoOpPlanner)
